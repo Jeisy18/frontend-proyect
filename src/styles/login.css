@@ -1,0 +1,359 @@
+
+.supervisor-login-container {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #c71585 0%, #e91e8c 50%, #ff1493 100%);
+  min-height: 100vh;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  justify-content: center;
+}
+ 
+.login-card {
+  width: 100%;
+  padding: 50px 45px;
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  animation: cardFloat 3s ease-in-out infinite;
+  max-width: 480px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+      0 0 100px rgba(255, 20, 147, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+ 
+.login-container1 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.login-container2 {
+  display: none;
+}
+.login-container3 {
+  display: contents;
+}
+.login-button-text {
+  z-index: 2;
+  position: relative;
+}
+.login-button-shine {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+.login-container4 {
+  display: none;
+}
+.login-container5 {
+  display: contents;
+}
+.login-container6 {
+  display: none;
+}
+.login-container7 {
+  display: contents;
+}
+.login-link {
+  display: contents;
+}
+.login-container8 {
+  right: 50px;
+  border: 1px solid #ffffff5c;
+  bottom: 30px;
+  display: flex;
+  z-index: 22;
+  position: fixed;
+  box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
+  min-height: auto;
+  align-items: center;
+  padding-top: 8px;
+  padding-left: 12px;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(41, 41, 41, 0.41);
+}
+.login-icon22 {
+  width: 24px;
+  margin-right: 4px;
+}
+.login-text {
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.login-card {
+  width: 100%;
+  padding: 50px 45px;
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  animation: cardFloat 3s ease-in-out infinite;
+  max-width: 480px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+      0 0 100px rgba(255, 20, 147, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+
+.login-header {
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+ 
+.login-form {
+  z-index: 2;
+  position: relative;
+}
+
+.login-title {
+  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.login-subtitle {
+  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.login-button {
+  color: #ffffff;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 18px 32px;
+  overflow: hidden;
+  position: relative;
+  font-size: 16px;
+  background: linear-gradient(135deg, #c71585 0%, #ff1493 100%);
+  box-shadow: 0 10px 30px rgba(199, 21, 133, 0.4);
+  margin-top: 32px;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(199, 21, 133, 0.5);
+}
+
+.login-button:active {
+  transform: translateY(0px);
+  box-shadow: 0 5px 20px rgba(199, 21, 133, 0.4);
+}
+
+.supervisor-icon {
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  animation: iconRotate 4s ease-in-out infinite;
+  background: linear-gradient(135deg, #c71585, #ff1493);
+  box-shadow: 0 10px 30px rgba(199, 21, 133, 0.3);
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.supervisor-icon  svg {
+  color: #ffffff;
+}
+ 
+
+@media(max-width: 767px) {
+  .login-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+  }
+  .supervisor-icon {
+    width: 70px;
+    height: 70px;
+  }
+  .login-title {
+    font-size: 26px;
+  }
+  .login-subtitle {
+    font-size: 14px;
+  }
+  .login-button {
+    padding: 16px 28px;
+    font-size: 15px;
+  }
+}
+
+@media(max-width: 479px) {
+  .login-card {
+    padding: 35px 25px;
+  }
+  .supervisor-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .login-title {
+    font-size: 24px;
+  }
+  .login-subtitle {
+    font-size: 13px;
+  }
+  .login-button {
+    margin-top: 24px;
+  }
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes iconRotate {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+
+
+/* === Clases que usan las animaciones === */
+
+.animate-float {
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+.supervisor-icon {
+  animation: iconRotate 6s ease-in-out infinite;
+}
+
+.login-background-pattern {
+  animation: patternMove 12s linear infinite;
+  opacity: 0.2;
+}
+
+.login-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+
+.form-input:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 20, 147, 0.1);
+  border-color: #ff1493;
+}
+ 
+.form-input:focus + .input-icon {
+  color: #ff1493;
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: #ff1493;
+}
+ 
+ 
+.form-input::placeholder {
+  color: #aaa}
+
+/*Formm*/
+.form-input {
+  padding: 14px 16px 14px 48px;
+  font-size: 14px;
+}
+.form-group {
+    margin-bottom: 20px;
+  }
+.input-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+ 
+.form-input {
+  color: #1a1a1a;
+  width: 100%;
+  border: 2px solid #e5e5e5;
+  outline: none;
+  padding: 16px 18px 16px 52px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+  border-radius: 12px;
+}
+.input-icon {
+  top: 50%;
+  left: 18px;
+  color: #999999;
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-label {
+  color: #2a2a2a;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
