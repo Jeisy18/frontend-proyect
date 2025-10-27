@@ -3,18 +3,18 @@ import EmployeeRow from "./EmployeeRow";
 import SearchBar from "./SearchBar";
 import FilterToggle from "./FilterToggle";
 
-const EmployeeTable = ({ employees }) => {
+const EmployeeTable = ({ employees = [] }) => {  
   const [search, setSearch] = useState("");
   const [activeOnly, setActiveOnly] = useState(false);
+  
 
-  const filteredEmployees = employees.filter(emp => {
+  const filteredEmployees = (employees || []).filter(emp => {
     const matchesSearch =
       emp.name.toLowerCase().includes(search.toLowerCase()) ||
       emp.lastname.toLowerCase().includes(search.toLowerCase());
     const matchesActive = activeOnly ? emp.active : true;
     return matchesSearch && matchesActive;
   });
-
 
   return (
 

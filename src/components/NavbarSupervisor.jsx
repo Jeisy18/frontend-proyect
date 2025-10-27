@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import { AuthContext } from "@/context/AuthContext";
 import Link from "next/link";
 
-
 const Navbar = () => {
   const [showConfigMenu, setShowConfigMenu] = useState(false);
-  const { logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const router = useRouter();
+
+  const panelTitle = user?.role === "admin" ? "Panel de Administrador" : "Panel de Supervisores";
 
   return (
     <nav className="navbar-supervisor">
@@ -21,26 +22,25 @@ const Navbar = () => {
               </g>
             </svg>
           </div>
-          <span className="brand-text">Panel de Supervisores</span>
+          <span className="brand-text">{panelTitle}</span>
         </div>
 
-        <ul className="navbar-menu">
-          {/* Items principales */}
-          <li className="active nav-item">
-             <Link href="/home">
-                <div className="nav-link">
-                  <svg width="20" height="20" viewBox="0 0 24 24">
-                    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
-                      <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    </g>
-                  </svg>
-                  <span>Inicio</span>
-                </div>
-             </Link>
+       <ul className="navbar-menu">
+          {/* Inicio */}
+          <li className={`nav-item ${router.pathname === "/home" ? "active" : ""}`} onClick={() => router.push("/home")}>
+            <div className="nav-link">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </g>
+              </svg>
+              <span>Inicio</span>
+            </div>
           </li>
 
-          <li className="nav-item">
+          {/* Estadísticas */}
+          <li className={`nav-item ${router.pathname === "/estadisticas" ? "active" : ""}`}>
             <a href="#estadisticas">
               <div className="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ const Navbar = () => {
               </div>
             </a>
           </li>
-
+  
           {/* Mini menú configuración */}
           <li className="nav-item" style={{ position: "relative" }}>
             <div

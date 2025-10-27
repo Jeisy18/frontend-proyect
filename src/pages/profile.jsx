@@ -32,6 +32,8 @@ export default function ProfilePage() {
     return matchesSearch && matchesActive;
   });
 
+  const panelTitle = user?.role === "admin" ? "Administrador" : "Supervisor";
+
   return (
     <>
       <Navbar />
@@ -40,7 +42,7 @@ export default function ProfilePage() {
           <div className="content-wrapper">
 
             <div className="page-header">
-              <h2 className="page-title">Perfil del {user?.role || "admin"}</h2>
+              <h2 className="page-title">Perfil del {panelTitle}</h2>
               <div className="header-decoration"></div>
             </div>
 
@@ -55,7 +57,6 @@ export default function ProfilePage() {
               </div>
 
               <div className="profile-table">
-                <h3 className="table-title">Empleados registrados por el usuario</h3>
                 <EmployeeTable employees={filteredEmployees} />
               </div>
             </div>

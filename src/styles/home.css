@@ -41,6 +41,7 @@
 
 .page-title {
   color: #1a1a1a;
+  text-align: center;
   font-size: 2.5rem;
   background: linear-gradient(135deg, #e91e63 0%, #f50057 100%);
   font-weight: 800;
@@ -89,6 +90,7 @@
   }
   .page-title {
     font-size: 2rem;
+    text-align: center;
   }
   .search-container {
     min-width: 100%;
@@ -108,6 +110,7 @@
 @media(max-width: 479px) {
   .page-title {
     font-size: 1.5rem;
+
   }
 }
 
