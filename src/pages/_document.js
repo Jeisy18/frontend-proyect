@@ -4,12 +4,18 @@ class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          ></meta>
+
           <meta charSet="utf-8"></meta>
           <meta property="twitter:card" content="summary_large_image"></meta>
+          <link rel="manifest" href="/manifest,json" />
+          <link rel="icon" href="/TempoTrack.png" type="image/png" />
+          <meta name="theme-color" content="#BF4408" />
+          <meta name="application-name" content="TempoTrack" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta name="apple-mobile-web-app-title" content="TempoTrack" />
+          <link rel="apple-touch-icon" href="/TempoTrack.ico" />
+
           <style
             dangerouslySetInnerHTML={{
               __html:
