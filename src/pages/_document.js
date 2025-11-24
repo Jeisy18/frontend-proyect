@@ -1,18 +1,20 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 class CustomDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-
           <meta charSet="utf-8"></meta>
           <meta property="twitter:card" content="summary_large_image"></meta>
-          <link rel="manifest" href="/manifest,json" />
+          <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/TempoTrack.png" type="image/png" />
           <meta name="theme-color" content="#BF4408" />
           <meta name="application-name" content="TempoTrack" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
           <meta name="apple-mobile-web-app-title" content="TempoTrack" />
           <link rel="apple-touch-icon" href="/TempoTrack.ico" />
 
@@ -26,7 +28,7 @@ class CustomDocument extends Document {
           <style
             dangerouslySetInnerHTML={{
               __html:
-                '\n  html {\n    font-family: Inter;\n    font-size: 16px;\n  }\n\n  body {\n    font-weight: 400;\n    font-style:normal;\n    text-decoration: none;\n    text-transform: none;\n    letter-spacing: normal;\n    line-height: 1.15;\n    color: var(--dl-color-theme-neutral-dark);\n    background: var(--dl-color-theme-neutral-light);\n    \n    fill: var(--dl-color-theme-neutral-dark);\n  }\n\n  \n\n  ',
+                "\n  html {\n    font-family: Inter;\n    font-size: 16px;\n  }\n\n  body {\n    font-weight: 400;\n    font-style:normal;\n    text-decoration: none;\n    text-transform: none;\n    letter-spacing: normal;\n    line-height: 1.15;\n    color: var(--dl-color-theme-neutral-dark);\n    background: var(--dl-color-theme-neutral-light);\n    \n    fill: var(--dl-color-theme-neutral-dark);\n  }\n\n  \n\n  ",
             }}
             data-tag="default-style-sheet"
           ></style>
@@ -59,7 +61,7 @@ class CustomDocument extends Document {
           <NextScript></NextScript>
         </body>
       </Html>
-    )
+    );
   }
 }
-export default CustomDocument
+export default CustomDocument;

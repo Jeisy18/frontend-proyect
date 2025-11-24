@@ -17,7 +17,7 @@ export default function ProtectedRoute({ children }) {
         router.replace("/");
       }
       if (user && router.pathname === "/") {
-        router.replace("/home"); 
+        router.replace("/dashboard");
       }
     }
   }, [user, loading, isClient, router]);

@@ -9,12 +9,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const profile = await getProfile(); 
-        setUser(profile.user || profile); 
+        const profile = await getProfile();
+        setUser(profile.user || profile);
       } catch (err) {
         setUser(null);
       } finally {
@@ -31,18 +30,18 @@ export const AuthProvider = ({ children }) => {
       if (res.message === "Login exitoso") {
         const profile = await getProfile();
         setUser(profile.user || profile);
-        router.push("/home");
+        router.push("/dashboard");
       }
     } catch (err) {
       console.error("Error en login:", err.message);
-      throw err; 
+      throw err;
     }
   };
 
   // Función para logout
   const logout = async () => {
     try {
-      const res = await logoutUser(); 
+      const res = await logoutUser();
       if (res.message === "Logout exitoso" || res.success) {
         setUser(null); // Limpiar contexto
         router.push("/"); // Redirigir al login

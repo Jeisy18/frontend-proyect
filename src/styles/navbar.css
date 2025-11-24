@@ -121,7 +121,7 @@
   display: none;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .navbar-content {
     gap: 1rem;
     height: auto;
@@ -134,7 +134,6 @@
   }
 }
 
-
 .navbar-supervisor .config-menu {
   position: absolute;
   top: 100%;
@@ -143,7 +142,7 @@
   border-radius: 8px;
   padding: 0.25rem 0;
   min-width: 180px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 50;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -160,7 +159,7 @@
 }
 
 .navbar-supervisor .config-menu li:hover {
-  background: rgba(233,30,99,0.1); /* sutil cambio al hover */
+  background: rgba(233, 30, 99, 0.1); /* sutil cambio al hover */
 }
 
 .navbar-supervisor .config-menu li svg {
