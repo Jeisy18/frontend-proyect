@@ -207,8 +207,6 @@ export default function EmployeesPage() {
                   <td>{emp.name}</td>
                   <td>{emp.last_name}</td>
                   <td>{emp.phone}</td>
-
-                  {/* FOTO */}
                   <td>
                     <img
                       src={emp.URL_photo}

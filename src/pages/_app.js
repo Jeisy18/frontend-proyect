@@ -1,5 +1,4 @@
 import "@/styles/style.css";
-import "@/styles/employeeTable.css";
 import "@/styles/home.css";
 import "@/styles/login.css";
 import "@/styles/navbar.css";
