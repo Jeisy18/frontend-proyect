@@ -1,0 +1,169 @@
+
+:root {
+  --pink-main: rgb(199, 21, 133);
+  --pink-light: rgb(230, 120, 180);
+  --pink-dark: rgb(150, 15, 100);
+}
+
+.container {
+  padding: 2rem;
+  background: #fce4ec;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--pink-main);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 20px;
+  
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--pink-main);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: var(--pink-dark);
+}
+
+.btnAdd {
+  background:rgb(205, 0, 130);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.btnAdd:hover {
+  background: linear-gradient(45deg, var(--pink-light), var(--pink-dark));
+}
+
+.formBox {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid var(--pink-light);
+  box-shadow: 0 0 10px rgba(199, 21, 133, 0.25);
+  margin-bottom: 20px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--pink-main);
+}
+
+.formButtons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.btnSave {
+  background: var(--pink-main);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnSave:hover {
+  background: var(--pink-dark);
+}
+
+.btnCancel {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(199, 21, 133, 0.15);
+  border-collapse: collapse;
+}
+
+.tableHead {
+  background: #c20064;
+  color: white;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center; 
+}
+
+
+.btnEdit {
+  background:rgb(232, 28, 157);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-right: 8px;
+}
+
+.btnEdit:hover {
+  background:#d10078;
+}
+
+.btnDelete {
+  background:#E91E63;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.btnDelete:hover {
+  background: var(--pink-dark);
+}
+
+.emptyText {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--pink-dark);
+}
+
+.photo {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #d10078; 
+}
