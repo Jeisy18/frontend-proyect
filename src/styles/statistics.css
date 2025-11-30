@@ -1,0 +1,169 @@
+/* Contenedor padre que abarca todo el ancho */
+.filtersContainer {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Ajustar proporcionalmente cada componente dentro */
+.filtersContainer > * {
+  flex: 2;      
+  min-width: 150px; 
+}
+
+.employeeGroupsContainer {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.employeeGroupTitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.employeeGroupGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.employeePhotoCard {
+  width: 165px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.employeePhotoCard:hover {
+  transform: translateY(-4px);
+}
+
+.employeePhotoAvatar {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.employeePhotoName {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.employeePhotoTotal {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* --- TABS --- */
+.employeeTabs {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.employeeTabButton {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 4px;
+  cursor: pointer;
+  color: #555;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.employeeTabButton:hover {
+  color: #000;
+}
+
+.employeeTabButton.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* --- TARJETAS CON BORDE COLOR DINÁMICO --- */
+.coloredCard {
+  border: 2px solid; /* Color dinámico desde React */
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease;
+}
+
+.coloredCard:hover {
+  transform: translateY(-3px);
+}
+
+/* CONTENEDORES GENERALES */
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.contentContainer {
+  width: 90%;
+  max-width: 1400px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.dateRangeContainer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.statsCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.statsTable th,
+.statsTable td {
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.statsTable th {
+  background: #f3f3f3;
+  font-weight: 600;
+}
+
+.formInput {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
