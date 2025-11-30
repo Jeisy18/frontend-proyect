@@ -5,6 +5,8 @@ import "@/styles/navbar.css";
 import "@/styles/profile.css";
 import "@/styles/toast.css";
 import "@/styles/dashboard.css";
+import "@/styles/employees.module.css";
+import "@/styles/statistics.css";
 
 import { GlobalProvider } from "@/context/global-context";
 import { IntlProvider } from "next-intl";
