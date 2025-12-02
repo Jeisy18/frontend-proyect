@@ -1,19 +1,11 @@
 import React, { useEffect } from "react";
+import styles from "../styles/toast.module.css";
 
-const Toast = ({ message, type = "success", duration = 3000, onClose }) => {
+export default function Toast({ message, type = "success", onClose }) {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose();
-    }, duration);
-
+    const timer = setTimeout(onClose, 3000);
     return () => clearTimeout(timer);
-  }, [duration, onClose]);
+  }, []);
 
-  return (
-    <div className={`toast toast-${type}`}>
-      {message}
-    </div>
-  );
-};
-
-export default Toast;
+  return <div className={`${styles.toast} ${styles[type]}`}>{message}</div>;
+}

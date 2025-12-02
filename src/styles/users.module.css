@@ -1,0 +1,171 @@
+.container {
+  padding: 20px;
+}
+
+/* TITULO */
+.title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--pink-main);
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* CONTENEDOR DEL TITULO + BUSQUEDA */
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* BUSQUEDA + BOTON EN UNA FILA */
+.searchRow {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+/* INPUT DE BUSQUEDA */
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #e91e63;
+  border-radius: 8px;
+}
+
+/* BOTON ROSA */
+.addBtn {
+  background: #e91e63;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.addBtn:hover {
+  background: #d81b60;
+}
+
+/* TABLA */
+.table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #f5f5f5;
+  padding: 12px;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  text-align: left;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.table tr:hover {
+  background: #f9f9f9;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: #00000055;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 350px;
+}
+
+.modalContent input,
+.modalContent select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* BOTON CANCELAR */
+.cancel {
+  background: gray;
+  color: white;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+/* Botones en la tabla */
+.smallBtn {
+  background: #f7b6d0;
+  color: #111;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  font-weight: 600;
+}
+
+.smallBtn:hover {
+  background: #f497c1;
+}
+
+.dangerBtn {
+  background: #d81b60;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dangerBtn:hover {
+  background: #b3144c;
+}
+
+.tableContainer {
+  max-height: 420px; /* Ajusta a lo que necesites */
+  overflow-y: auto;
+  margin-top: 10px;
+
+  /* Scroll bonito */
+  scrollbar-width: thin;
+  scrollbar-color: #f7b6d0 #f1f1f1;
+}
+
+.tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background: #f7b6d0;
+  border-radius: 10px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+  background: #f497c1;
+}
+    
