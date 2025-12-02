@@ -3,10 +3,10 @@ import "@/styles/home.css";
 import "@/styles/login.css";
 import "@/styles/navbar.css";
 import "@/styles/profile.css";
-import "@/styles/toast.css";
 import "@/styles/dashboard.css";
 import "@/styles/employees.module.css";
 import "@/styles/devices.module.css";
+import "@/styles/toast.module.css";
 import "@/styles/statistics.css";
 
 import { GlobalProvider } from "@/context/global-context";
