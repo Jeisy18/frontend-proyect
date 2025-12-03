@@ -11,11 +11,7 @@ const LoginForm = () => {
     const password = e.target.password.value;
 
     try {
-      console.log("Email:", email, "Password:", password);
-
-      await login({ email, password }); // Llama al API y actualiza el estado
       setError(""); 
-      console.log("Login exitoso");
     } catch (err) {
       setError(err.message); 
     }

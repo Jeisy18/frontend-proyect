@@ -1,82 +1,39 @@
 import React, { useEffect, useState } from "react";
-import {getAllEmployees,createEmployee,deleteEmployee,updateEmployee,} from "../api/employee.api";
-import NavbarSupervisor from "@/components/NavbarSupervisor";
+import { getAllEmployees, deleteEmployee } from "../api/employee.api";
+import NavbarSupervisor from "../components/NavbarSupervisor";
+import EmployeesForm from "../components/Employees/EmployeeForm";
+import EmployeesTable from "../components/Employees/EmployeesTable";
+import Toast from "../components/Toast";
+import ConfirmModal from "../components/ConfirmModal";
 import styles from "../styles/employees.module.css";
 
 export default function EmployeesPage() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
   const [search, setSearch] = useState("");
-
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const [formData, setFormData] = useState({ name: "", last_name: "", matricula: "", phone: "", URL_photo: "" });
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success");
+  const [showToast, setShowToast] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState({ show: false, id: null });
 
-  const [formData, setFormData] = useState({
-    name: "",
-    last_name: "",
-    matricula: "",
-    phone: "",
-    URL_photo: "",
-  });
-
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const showToastMsg = (message, type = "success") => {
+    setToastMessage(message);
+    setToastType(type);
+    setShowToast(true);
+  };
 
   async function fetchEmployees() {
     try {
       setLoading(true);
       const data = await getAllEmployees();
       setEmployees(data);
-      setError("");
     } catch (err) {
-      setError(err.message);
+      showToastMsg("Error al cargar empleados: " + err.message, "error");
     } finally {
       setLoading(false);
-    }
-  }
-
-  async function handleSubmit() {
-    try {
-      if (editingId) {
-        await updateEmployee(editingId, formData);
-      } else {
-        await createEmployee(formData);
-      }
-
-      setShowForm(false);
-      setEditingId(null);
-
-      setFormData({
-        name: "",
-        last_name: "",
-        matricula: "",
-        phone: "",
-        URL_photo: "",
-      });
-
-      fetchEmployees();
-    } catch (err) {
-      alert("Error: " + err.message);
-    }
-  }
-
-  function openEdit(emp) {
-    setEditingId(emp.id);
-    setFormData(emp);
-    setShowForm(true);
-  }
-
-  async function handleDelete(id) {
-    if (!confirm("¿Seguro que deseas eliminar este empleado?")) return;
-
-    try {
-      await deleteEmployee(id);
-      fetchEmployees();
-    } catch (err) {
-      alert("Error al eliminar: " + err.message);
     }
   }
 
@@ -84,21 +41,38 @@ export default function EmployeesPage() {
     fetchEmployees();
   }, []);
 
+  function openEdit(emp) {
+    setEditingId(emp.id);
+    setFormData(emp);
+    setShowForm(true);
+  }
+
+  function handleDelete(id) {
+    setConfirmDelete({ show: true, id });
+  }
+
+  async function confirmDeleteAction() {
+    try {
+      await deleteEmployee(confirmDelete.id);
+      showToastMsg("Empleado eliminado correctamente", "success");
+      fetchEmployees();
+    } catch (err) {
+      showToastMsg("Error al eliminar: " + err.message, "error");
+    } finally {
+      setConfirmDelete({ show: false, id: null });
+    }
+  }
+
   const filteredEmployees = employees.filter(
-    (e) =>
-      e.name.toLowerCase().includes(search.toLowerCase()) ||
-      e.matricula.toLowerCase().includes(search.toLowerCase())
+    e => e.name.toLowerCase().includes(search.toLowerCase()) || e.matricula.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div>
       <NavbarSupervisor />
       <div className={styles.container}>
-
-        <div className={styles.content}>
+        <div className="contentContainer">
           <h1 className={styles.title}>Empleados</h1>
-
-          {/* 🔍 BUSCADOR */}
           <input
             type="text"
             className={styles.searchInput}
@@ -106,131 +80,25 @@ export default function EmployeesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <button className={styles.btnAdd} onClick={() => setShowForm(true)}>+ Agregar empleado</button>
 
-          {/* ➕ Agregar */}
-          <button className={styles.btnAdd} onClick={() => setShowForm(true)}>
-            + Agregar empleado
-          </button>
-
-          {/* FORMULARIO */}
           {showForm && (
-            <div className={styles.formBox}>
-              <h2>{editingId ? "Editar empleado" : "Nuevo empleado"}</h2>
-
-              <div className={styles.formGrid}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nombre"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-
-                <input
-                  type="text"
-                  name="last_name"
-                  placeholder="Apellido"
-                  value={formData.last_name}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-
-                <input
-                  type="text"
-                  name="matricula"
-                  placeholder="Matrícula"
-                  value={formData.matricula}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Teléfono"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-
-                <input
-                  type="text"
-                  name="URL_photo"
-                  placeholder="URL Foto"
-                  value={formData.URL_photo}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-              </div>
-
-              <div className={styles.formButtons}>
-                <button className={styles.btnSave} onClick={handleSubmit}>
-                  {editingId ? "Actualizar" : "Guardar"}
-                </button>
-
-                <button
-                  className={styles.btnCancel}
-                  onClick={() => {
-                    setShowForm(false);
-                    setEditingId(null);
-                  }}
-                >
-                  Cancelar
-                </button>
-              </div>
-            </div>
+            <EmployeesForm
+              formData={formData}
+              setFormData={setFormData}
+              editingId={editingId}
+              cancel={() => {
+                setShowForm(false);
+                setEditingId(null);
+                setFormData({ name: "", last_name: "", matricula: "", phone: "", URL_photo: "", photoFile: null });
+              }}
+              showToastMsg={showToastMsg}
+              fetchEmployees={fetchEmployees} 
+            />
           )}
 
-          {/* TABLA */}
           {!loading && filteredEmployees.length > 0 && (
-            <table className={styles.table}>
-              <thead className={styles.tableHead}>
-                <tr>
-                  <th>Matrícula</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Teléfono</th>
-                  <th>Foto</th> {/* ← COLUMNA NUEVA */}
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {filteredEmployees.map((emp) => (
-                  <tr key={emp.id} className={styles.tableRow}>
-                    <td>{emp.matricula}</td>
-                    <td>{emp.name}</td>
-                    <td>{emp.last_name}</td>
-                    <td>{emp.phone}</td>
-                    <td>
-                      <img
-                        src={emp.URL_photo}
-                        alt={`${emp.name} ${emp.last_name}`}
-                        className={styles.photo}
-                      />
-                    </td>
-
-                    {/* ACCIONES */}
-                    <td>
-                      <button
-                        className={styles.btnEdit}
-                        onClick={() => openEdit(emp)}
-                      >
-                        Editar
-                      </button>
-
-                      <button
-                        className={styles.btnDelete}
-                        onClick={() => handleDelete(emp.id)}
-                      >
-                        Eliminar
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <EmployeesTable employees={filteredEmployees} openEdit={openEdit} handleDelete={handleDelete} />
           )}
 
           {!loading && filteredEmployees.length === 0 && (
@@ -238,7 +106,18 @@ export default function EmployeesPage() {
           )}
         </div>
       </div>
-    </div>
 
+      {confirmDelete.show && (
+        <ConfirmModal
+          message="¿Seguro que deseas eliminar este empleado?"
+          onConfirm={confirmDeleteAction}
+          onCancel={() => setConfirmDelete({ show: false, id: null })}
+        />
+      )}
+
+      {showToast && (
+        <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />
+      )}
+    </div>
   );
 }

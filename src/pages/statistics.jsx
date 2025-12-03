@@ -117,7 +117,7 @@ export default function StatisticsPage() {
     <div>
       <Navbar /> 
       <div className="pageContainer">
-        <div className="contentContainer">
+        <div className="contentContainer" style={{marginLeft:"60px"}}>
           <h1 className="pageTitle" style={{ textAlign: "center" }}>Estadísticas de Asistencia</h1>
 
           <div className="filtersContainer">

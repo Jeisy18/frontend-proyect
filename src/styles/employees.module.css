@@ -167,3 +167,140 @@
   border-radius: 10px;
   border: 2px solid #d10078; 
 }
+
+/* === 📸 CONTENEDOR GENERAL DE LA CÁMARA === */
+.cameraBox {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 22px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 10px 25px rgba(199, 21, 133, 0.12);
+  margin-top: 20px;
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+/* === 🎥 VIDEO (izquierda) === */
+.video {
+  width: 260px;
+  border-radius: 20px;
+  background: #fafafa;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* === 📍 BOTONES DERECHA === */
+.cameraRight {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* === TOMAR FOTO (botón principal) === */
+.cameraBtnMain {
+  width: 180px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #c71585 0%, #ff1493 100%);
+  box-shadow: 0 8px 20px rgba(199, 21, 133, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+.cameraBtnMain:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(199, 21, 133, 0.45);
+}
+
+.cameraBtnMain:active {
+  transform: translateY(0px);
+}
+
+/* === CANCELAR === */
+.cameraBtnCancel {
+  width: 180px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  background: #e63946;
+  box-shadow: 0 6px 14px rgba(230, 57, 70, 0.35);
+
+  transition: 0.2s ease;
+}
+
+.cameraBtnCancel:hover {
+  background: #d62839;
+}
+
+/* === BOTONES INICIALES (subir / tomar) === */
+.photoButtons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.photoBtn {
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 600;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #c71585 0%, #ff1493 100%);
+  color: white;
+
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(199, 21, 133, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+.photoBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(199, 21, 133, 0.45);
+}
+
+
+/* === PREVIEW === */
+.previewBox {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.photoPreview {
+  width: 180px;
+  border-radius: 20px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btnDisabled {
+  background-color: #ccc;
+  /* gris tenue para indicar que está deshabilitado */
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: background-color 0.3s;
+}
+
+.btnSave:not(.btnDisabled) {
+  background-color: #4caf50;
+  /* verde normal cuando se puede hacer click */
+  transition: background-color 0.3s;
+}
