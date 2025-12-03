@@ -22,29 +22,48 @@ export async function getEmployeeByMatricula(matricula) {
   return res.json();
 }
 
-export async function createEmployee(data) {
+export async function createEmployee(data, file, embedding) {
+  const form = new FormData();
+  
+  form.append("name", data.name);
+  form.append("last_name", data.last_name);
+  form.append("matricula", data.matricula);
+  form.append("phone", data.phone);
+  form.append("facial_vector", JSON.stringify(embedding));
+  
+  if (file) form.append("file", file); 
+
   const res = await fetch(`${API_URL}/create`, {
     method: "POST",
     credentials: "include",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: form,
   });
 
   if (!res.ok) throw new Error("Error al crear empleado");
   return res.json();
 }
 
-export async function updateEmployee(id, data) {
+export async function updateEmployee(id, data, file, embedding) {
+  const form = new FormData();
+
+  form.append("name", data.name);
+  form.append("last_name", data.last_name);
+  form.append("matricula", data.matricula);
+  form.append("phone", data.phone);
+  form.append("facial_vector", JSON.stringify(embedding));
+
+  if (file) form.append("file", file);
+
   const res = await fetch(`${API_URL}/${id}`, {
     method: "PATCH",
     credentials: "include",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: form,
   });
 
   if (!res.ok) throw new Error("Error al actualizar empleado");
   return res.json();
 }
+
 
 export async function deleteEmployee(id) {
   const res = await fetch(`${API_URL}/${id}`, {

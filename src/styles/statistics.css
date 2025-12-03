@@ -109,8 +109,8 @@
 
 /* CONTENEDORES GENERALES */
 .pageContainer {
-  width: 100%;
-  min-height: 100vh;
+  width: 95%;
+  min-height: 130vh;
   background: #ffffff;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -119,14 +119,14 @@
 }
 
 .contentContainer {
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 30px;
   overflow-y: auto;
-  max-height: 90vh;
+  max-height: 80vh;
 }
 
 .dateRangeContainer {

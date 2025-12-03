@@ -80,13 +80,14 @@ const Navbar = () => {
             </div>
           </li>
 
-          {/* Estadísticas */}
-          <li
-            className={`nav-item ${
-              router.pathname === "/estadisticas" ? "active" : ""
-            }`}
-          >
-            <a href="#estadisticas">
+          {/* Estadísticas (solo admins) */}
+          {user?.role === "admin" && (
+            <li
+              className={`nav-item ${
+                router.pathname === "/statistics" ? "active" : ""
+              }`}
+              onClick={() => router.push("/statistics")}
+            >
               <div className="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24">
                   <g
@@ -102,8 +103,8 @@ const Navbar = () => {
                 </svg>
                 <span>Estadísticas</span>
               </div>
-            </a>
-          </li>
+            </li>
+          )}
 
           {/* Mini menú configuración */}
           <li className="nav-item" style={{ position: "relative" }}>
