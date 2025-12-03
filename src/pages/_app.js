@@ -8,6 +8,7 @@ import "@/styles/employees.module.css";
 import "@/styles/devices.module.css";
 import "@/styles/toast.module.css";
 import "@/styles/statistics.css";
+import "@/styles/absences.module.css";
 
 import { GlobalProvider } from "@/context/global-context";
 import { IntlProvider } from "next-intl";

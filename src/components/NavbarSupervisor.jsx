@@ -56,6 +56,29 @@ const Navbar = () => {
               <span>Inicio</span>
             </div>
           </li>
+          {/* Ausencias */}
+          <li
+            className={`nav-item ${
+              router.pathname === "/absences" ? "active" : ""
+            }`}
+            onClick={() => router.push("/absences")}
+          >
+            <div className="nav-link">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z" />
+                  <path d="M12 7v5l3 2" />
+                </g>
+              </svg>
+              <span>Ausencias</span>
+            </div>
+          </li>
 
           {/* Estadísticas */}
           <li
