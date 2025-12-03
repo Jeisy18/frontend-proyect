@@ -241,7 +241,6 @@
   cursor: pointer;
 }
 
-/* Form grid */
 .formGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -249,7 +248,7 @@
 }
 
 .reasonBig {
-  grid-column: span 2; /* hace el motivo más ancho */
+  grid-column: span 2;
 }
 
 /* Buttons */

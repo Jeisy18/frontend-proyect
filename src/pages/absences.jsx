@@ -1,4 +1,3 @@
-// src/pages/absences.jsx
 import React, { useEffect, useState } from "react";
 import NavbarSupervisor from "@/components/NavbarSupervisor";
 import styles from "@/styles/absences.module.css";

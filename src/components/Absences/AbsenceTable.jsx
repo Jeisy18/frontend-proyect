@@ -1,4 +1,3 @@
-// src/components/Absence/AbsenceTable.jsx
 import React, { useState } from "react";
 import styles from "@/styles/absences.module.css";
 

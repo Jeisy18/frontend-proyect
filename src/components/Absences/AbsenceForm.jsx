@@ -1,4 +1,3 @@
-// src/components/Absences/AbsenceForm.jsx
 import React, { useState, useEffect } from "react";
 import StatsEmployeeSelect from "@/components/Stats/StatsEmployeeSelect";
 import styles from "@/styles/absences.module.css";
